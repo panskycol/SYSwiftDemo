@@ -14,6 +14,14 @@
 		5917CD3A2C5C738900FBE60F /* SYSwiftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917CD392C5C738900FBE60F /* SYSwiftDemoTests.swift */; };
 		5917CD442C5C738900FBE60F /* SYSwiftDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917CD432C5C738900FBE60F /* SYSwiftDemoUITests.swift */; };
 		5917CD462C5C738900FBE60F /* SYSwiftDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917CD452C5C738900FBE60F /* SYSwiftDemoUITestsLaunchTests.swift */; };
+		59A3B04E2C5F69DF00CE253F /* CardContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3B04D2C5F69DF00CE253F /* CardContainerView.swift */; };
+		59A3B0502C5F6A0100CE253F /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3B04F2C5F6A0100CE253F /* HomeScreen.swift */; };
+		59A3B0522C5F6A1900CE253F /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3B0512C5F6A1900CE253F /* UserCard.swift */; };
+		59A3B0542C5F6A4300CE253F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3B0532C5F6A4300CE253F /* HomeViewModel.swift */; };
+		59A3B0562C5F6A7300CE253F /* UserCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3B0552C5F6A7300CE253F /* UserCardView.swift */; };
+		59A3B0582C5F6A9200CE253F /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3B0572C5F6A9200CE253F /* RoundButton.swift */; };
+		59A3B05A2C5F6B8600CE253F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3B0592C5F6B8600CE253F /* View+Extension.swift */; };
+		59DB5D022C5E216700482FE6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB5D012C5E216700482FE6 /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		5917CD3F2C5C738900FBE60F /* SYSwiftDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SYSwiftDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5917CD432C5C738900FBE60F /* SYSwiftDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSwiftDemoUITests.swift; sourceTree = "<group>"; };
 		5917CD452C5C738900FBE60F /* SYSwiftDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSwiftDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		59A3B04D2C5F69DF00CE253F /* CardContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContainerView.swift; sourceTree = "<group>"; };
+		59A3B04F2C5F6A0100CE253F /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		59A3B0512C5F6A1900CE253F /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
+		59A3B0532C5F6A4300CE253F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		59A3B0552C5F6A7300CE253F /* UserCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardView.swift; sourceTree = "<group>"; };
+		59A3B0572C5F6A9200CE253F /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		59A3B0592C5F6B8600CE253F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		59DB5D012C5E216700482FE6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +112,14 @@
 			children = (
 				5917CD282C5C738700FBE60F /* SYSwiftDemoApp.swift */,
 				5917CD2A2C5C738700FBE60F /* ContentView.swift */,
+				59DB5D012C5E216700482FE6 /* AppState.swift */,
+				59A3B04D2C5F69DF00CE253F /* CardContainerView.swift */,
+				59A3B04F2C5F6A0100CE253F /* HomeScreen.swift */,
+				59A3B0512C5F6A1900CE253F /* UserCard.swift */,
+				59A3B0532C5F6A4300CE253F /* HomeViewModel.swift */,
+				59A3B0552C5F6A7300CE253F /* UserCardView.swift */,
+				59A3B0572C5F6A9200CE253F /* RoundButton.swift */,
+				59A3B0592C5F6B8600CE253F /* View+Extension.swift */,
 				5917CD2C2C5C738900FBE60F /* Assets.xcassets */,
 				5917CD2E2C5C738900FBE60F /* Preview Content */,
 			);
@@ -257,7 +281,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59A3B0582C5F6A9200CE253F /* RoundButton.swift in Sources */,
+				59DB5D022C5E216700482FE6 /* AppState.swift in Sources */,
+				59A3B05A2C5F6B8600CE253F /* View+Extension.swift in Sources */,
+				59A3B0562C5F6A7300CE253F /* UserCardView.swift in Sources */,
+				59A3B0502C5F6A0100CE253F /* HomeScreen.swift in Sources */,
+				59A3B0542C5F6A4300CE253F /* HomeViewModel.swift in Sources */,
 				5917CD2B2C5C738700FBE60F /* ContentView.swift in Sources */,
+				59A3B04E2C5F69DF00CE253F /* CardContainerView.swift in Sources */,
+				59A3B0522C5F6A1900CE253F /* UserCard.swift in Sources */,
 				5917CD292C5C738700FBE60F /* SYSwiftDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,7 +454,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SYSwiftDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = JUNW5V8XD9;
+				DEVELOPMENT_TEAM = 5GD9M937L5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -430,6 +462,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,7 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SYSwiftDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = JUNW5V8XD9;
+				DEVELOPMENT_TEAM = 5GD9M937L5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -459,6 +492,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
