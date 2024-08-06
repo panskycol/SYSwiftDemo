@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct UserCard {
+    let id = UUID()
+    let name: String
+    let age: Int
+    let place: String
+    let zodiac: String
+    let photos: [String]
+}

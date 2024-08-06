@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    
+    @StateObject var viewModel = HomeViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        ZStack{
+            ForEach(viewModel.displayingCard.reversed(), id: \.id){ car in
+                UserCardView(userCard:car)
+            }
+        }
     }
 }
 

@@ -45,6 +45,7 @@ struct PressScaleButton: ButtonStyle{
 struct ColorButton: ViewModifier{
     var type: ButtonType
     
+    //这个是ViewModifier协议里面的一个方法
     func body(content: Content) -> some View {
         switch type{
         case.back:
