@@ -9,68 +9,90 @@ import SwiftUI
 
 struct UserCardView: View {
     var userCard: UserCard
+    var swipeAction: (() -> Void)?
     @State var imageIndex = 0
     @State var offset:CGSize = .zero
     
     var body: some View {
         GeometryReader{ proxy in
-            Image(userCard.photos[imageIndex])
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: proxy.size.width, height: proxy.size.height)
-                .cornerRadius(20)
             
-            HStack{
-                Rectangle()
-                    .onTapGesture {
-                        updateImageIndex(hasMoreImage: false)
+            let frameWidth = proxy.size.width
+            let frameHeight = proxy.size.height
+            ZStack(alignment: .top){
+                Image(userCard.photos[imageIndex])
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: frameWidth, height: frameHeight)
+                    .cornerRadius(20)
+                HStack{
+                    Rectangle()
+                        .onTapGesture {
+                            updateImageIndex(hasMoreImage: false)
+                        }
+                    Rectangle()
+                        .onTapGesture {
+                            updateImageIndex(hasMoreImage: true)
+                        }
+                }.foregroundColor(.white.opacity(0.01))
+                
+                //顶部选择条
+                HStack{
+                    ForEach(0..<userCard.photos.count, id: \.self){
+                        imageIndex in
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(height: 4)
+                            .foregroundColor(self.imageIndex == imageIndex ? .white : .gray.opacity(0.5))
                     }
-                Rectangle()
-                    .onTapGesture {
-                        updateImageIndex(hasMoreImage: true)
+                }
+                .padding(.top, 10)
+                .padding(.horizontal)
+                
+                //喜欢和不喜欢的标签
+                VStack{
+                    HStack {
+                        if offset.width > 0{
+                            creatUserCardLabel(title: "LIKE", degree: -20, color: .green)
+                            Spacer()
+                        } else if offset.width < 0{
+                            Spacer()
+                            creatUserCardLabel(title: "NOPE", degree: 20, color: .red)
+                        }
                     }
-            }.foregroundColor(.white.opacity(0.01))
-            
-            HStack{
-                ForEach(0..<userCard.photos.count, id: \.self){
-                    imageIndex in
-                    RoundedRectangle(cornerRadius: 20)
-                        .frame(height: 4)
-                        .foregroundColor(self.imageIndex == imageIndex ? .white : .gray.opacity(0.5))
+                    .padding(.horizontal, 30)
+                    .padding(.top, 40)
+                    Spacer()
+                    createUserCardBottomInfo()
                 }
             }
-            .padding(.top, 10)
-            .padding(.horizontal)
-            HStack {
-                if offset.width > 0{
-                    creatUserCardLabel(title: "LIKE", degree: -20, color: .green)
-                } else if offset.width < 0{
-                    creatUserCardLabel(title: "NOPE", degree: 20, color: .red)
-                }
-            }
-            .padding(.horizontal, 30)
-            .padding(.top, 40)
-            Spacer()
-            createUserCardBottomInfo()
+            .offset(offset)
+            .scaleEffect(getScaleAmount())
+            .rotationEffect(Angle(degrees: getScaleAmount()))
+            .gesture(
+                DragGesture()
+                    .onChanged{ value in
+                        
+                        withAnimation(.easeOut(duration: 0.2)){
+                            self.offset = value.translation
+                        }
+                    }
+                    .onEnded{ value in
+                        withAnimation(.easeOut(duration: 0.2)){
+                            
+                            let screenCutoff = frameWidth / 2 * 0.8
+                            let translation = value.translation.width
+                            let checkingStatus = translation > 0 ? translation : -translation
+                            if checkingStatus > screenCutoff {
+                                
+                                offset = CGSize(width: (translation > 0 ? frameWidth : -frameWidth) * 5, height: value.translation.height)
+                                swipeAction?()
+                            } else {
+                                offset = .zero
+                            }
+                            
+                        }
+                    }
+            )
         }
-        .offset(offset)
-        .scaleEffect(getScaleAmount())
-        .rotationEffect(Angle(degrees: getScaleAmount()))
-        .gesture(
-            DragGesture()
-                .onChanged{ value in
-                    
-                    withAnimation(.easeOut(duration: 0.2)){
-                        offset = value.translation
-                    }
-                    print("拉拽了")
-                }
-                .onChanged{ value in
-                    withAnimation(.easeOut(duration: 0.2)){
-                        offset = .zero
-                    }
-                }
-        )
     }
     
     func updateImageIndex(hasMoreImage: Bool){
@@ -141,4 +163,4 @@ struct UserCardView_Previews: PreviewProvider {
         UserCardView(userCard: UserCard(name: "jame", age: 10, place: "London", zodiac: "Cancer", photos: ["image_0","image_1"]))
     }
 }
-    
+

@@ -10,12 +10,11 @@ import SwiftUI
 struct HomeScreen: View {
     
     @StateObject var viewModel = HomeViewModel()
+    
     var body: some View {
         
         ZStack{
-            ForEach(viewModel.displayingCard.reversed(), id: \.id){ car in
-                UserCardView(userCard:car)
-            }
+            CardContainerView(viewModel: viewModel)
         }
     }
 }
