@@ -66,7 +66,7 @@ struct UserCardView: View {
             }
             .offset(offset)
             .scaleEffect(getScaleAmount())
-            .rotationEffect(Angle(degrees: getScaleAmount()))
+            .rotationEffect(.degrees(getAngleAmount()))
             .gesture(
                 DragGesture()
                     .onChanged{ value in
@@ -117,10 +117,20 @@ struct UserCardView: View {
     
     func getScaleAmount() -> CGFloat {
         
-        let max = UIScreen.main.bounds.width/2.0
+        let max = UIScreen.main.bounds.width/2
         let currentAmount = abs(offset.width)
         let percentage = currentAmount / max
         return 1.0 - min(percentage, 0.7) * 0.3
+    }
+    
+    func getAngleAmount() -> CGFloat {
+                
+        let drag = Double(offset.width / 5)
+        if drag > 0 {
+            return min(drag, 8);
+        } else {
+            return max(drag, -8)
+        }
     }
     
     func createUserCardBottomInfo() -> some View {

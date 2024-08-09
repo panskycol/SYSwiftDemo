@@ -19,13 +19,29 @@ struct CardContainerView: View {
                 UserCardView(userCard: card, swipeAction: viewModel.nextUserCard)
             }
             
+            // 喜欢和不喜欢的那几个按钮
             HStack{
                 ForEach(ButtonType.allCases){
                     type in
-                    RoundButton(type: type).frame(height: 45)
+                    RoundButton(type: type, buttnClick: { type in
+                        
+                        switch type {
+                        case .back:
+                            debugPrint("roll back")
+                        case .no:
+                            viewModel.nextUserCard()
+                        case .heart:
+                            viewModel.nextUserCard()
+                        case .star:
+                            debugPrint("roll back")
+                        }
+                    }).frame(height: 45)
                 }
-            }.padding(.bottom, 15)
+            }
+            .padding(.bottom, 15)
         }
+        .padding(.vertical, 60)
+        .padding(.horizontal, 20)
     }
 }
 

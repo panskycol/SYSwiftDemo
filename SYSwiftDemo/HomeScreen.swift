@@ -13,8 +13,10 @@ struct HomeScreen: View {
     
     var body: some View {
         
-        ZStack{
+        if viewModel.hasMoreCard {
             CardContainerView(viewModel: viewModel)
+        } else {
+            EmptyView(viewModel: viewModel)
         }
     }
 }

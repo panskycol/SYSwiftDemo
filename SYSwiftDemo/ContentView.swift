@@ -10,12 +10,13 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var appState = AppState()
+    private let homeScreenView = HomeScreen()
     
     var body: some View {
         VStack {
             switch appState.selectedTab{
             case .home:
-                HomeScreen()
+                homeScreenView
             case .live:
                 Text("Live")
             case .message:
@@ -23,12 +24,15 @@ struct ContentView: View {
             case .profile:
                 Text("Profile")
             }
-            Spacer()
-            HStack{
-                createTabBarItem(tab: .home, title: "Home")
-                createTabBarItem(tab: .live, title: "Live")
-                createTabBarItem(tab: .message, title: "Message")
-                createTabBarItem(tab: .profile, title: "Profile")
+            
+            if !appState.isFullScreen{
+                Spacer()
+                HStack{
+                    createTabBarItem(tab: .home, title: "Home")
+                    createTabBarItem(tab: .live, title: "Live")
+                    createTabBarItem(tab: .message, title: "Message")
+                    createTabBarItem(tab: .profile, title: "Profile")
+                }
             }
         }
     }
