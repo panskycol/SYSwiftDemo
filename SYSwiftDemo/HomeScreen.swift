@@ -19,14 +19,13 @@ struct HomeScreen: View {
             CardDetailView(card:viewModel.displayingCard.first!)
         } else {
             ZStack{
-                CardContainerView(viewModel: viewModel)
-                    .environmentObject(appState)
+                if viewModel.hasMoreCard {
+                    CardContainerView(viewModel: viewModel)
+                        .environmentObject(appState)
+                } else {
+                    EmptyView(viewModel: viewModel)
+                }
             }
-
-        if viewModel.hasMoreCard {
-            CardContainerView(viewModel: viewModel)
-        } else {
-            EmptyView(viewModel: viewModel)
         }
     }
 }
