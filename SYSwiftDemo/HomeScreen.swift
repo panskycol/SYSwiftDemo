@@ -17,6 +17,7 @@ struct HomeScreen: View {
         
         if appState.isFullScreen {
             CardDetailView(card:viewModel.displayingCard.first!)
+                .environmentObject(appState)
         } else {
             ZStack{
                 if viewModel.hasMoreCard {

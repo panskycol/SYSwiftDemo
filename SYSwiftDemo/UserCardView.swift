@@ -62,7 +62,9 @@ struct UserCardView: View {
                     .padding(.horizontal, 30)
                     .padding(.top, 40)
                     Spacer()
-                    createUserCardBottomInfo()
+                    if (!appState.isFullScreen){
+                        createUserCardBottomInfo()
+                    }
                 }
             }
             .offset(offset)
@@ -71,25 +73,27 @@ struct UserCardView: View {
             .gesture(
                 DragGesture()
                     .onChanged{ value in
-                        
-                        withAnimation(.easeOut(duration: 0.2)){
-                            self.offset = value.translation
+                        if (!appState.isFullScreen){
+                            withAnimation(.easeOut(duration: 0.2)){
+                                self.offset = value.translation
+                            }
                         }
                     }
                     .onEnded{ value in
-                        withAnimation(.easeOut(duration: 0.2)){
-                            
-                            let screenCutoff = frameWidth / 2 * 0.8
-                            let translation = value.translation.width
-                            let checkingStatus = translation > 0 ? translation : -translation
-                            if checkingStatus > screenCutoff {
+                        if (!appState.isFullScreen){
+                            withAnimation(.easeOut(duration: 0.2)){
                                 
-                                offset = CGSize(width: (translation > 0 ? frameWidth : -frameWidth) * 5, height: value.translation.height)
-                                swipeAction?()
-                            } else {
-                                offset = .zero
+                                let screenCutoff = frameWidth / 2 * 0.8
+                                let translation = value.translation.width
+                                let checkingStatus = translation > 0 ? translation : -translation
+                                if checkingStatus > screenCutoff {
+                                    
+                                    offset = CGSize(width: (translation > 0 ? frameWidth : -frameWidth) * 5, height: value.translation.height)
+                                    swipeAction?()
+                                } else {
+                                    offset = .zero
+                                }
                             }
-                            
                         }
                     }
             )
