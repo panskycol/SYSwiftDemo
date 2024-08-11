@@ -18,10 +18,11 @@ enum ButtonType: String, CaseIterable, Identifiable {
 struct RoundButton: View {
     
     var type:ButtonType
+    var buttnClick: ((_: ButtonType) -> Void)?
     
     var body: some View {
         Button{
-            
+            buttnClick?(type)
         } label: {
             Image(systemName: type.rawValue)
                 .resizable()

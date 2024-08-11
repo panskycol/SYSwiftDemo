@@ -22,6 +22,11 @@ struct HomeScreen: View {
                 CardContainerView(viewModel: viewModel)
                     .environmentObject(appState)
             }
+
+        if viewModel.hasMoreCard {
+            CardContainerView(viewModel: viewModel)
+        } else {
+            EmptyView(viewModel: viewModel)
         }
     }
 }
