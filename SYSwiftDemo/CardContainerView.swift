@@ -10,6 +10,7 @@ import SwiftUI
 struct CardContainerView: View {
     
     @ObservedObject var viewModel: HomeViewModel
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         
@@ -17,6 +18,7 @@ struct CardContainerView: View {
             
             ForEach(viewModel.displayingCard.reversed()){ card in
                 UserCardView(userCard: card, swipeAction: viewModel.nextUserCard)
+                    .environmentObject(appState)
             }
             
             HStack{
@@ -32,5 +34,6 @@ struct CardContainerView: View {
 struct CardContainerView_Previews: PreviewProvider {
     static var previews: some View {
         CardContainerView(viewModel: HomeViewModel())
+            .environmentObject(AppState(isFullScreen: true))
     }
 }

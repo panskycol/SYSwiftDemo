@@ -10,11 +10,18 @@ import SwiftUI
 struct HomeScreen: View {
     
     @StateObject var viewModel = HomeViewModel()
+    @EnvironmentObject var appState: AppState
+    
     
     var body: some View {
         
-        ZStack{
-            CardContainerView(viewModel: viewModel)
+        if appState.isFullScreen {
+            CardDetailView(card:viewModel.displayingCard.first!)
+        } else {
+            ZStack{
+                CardContainerView(viewModel: viewModel)
+                    .environmentObject(appState)
+            }
         }
     }
 }
@@ -22,5 +29,6 @@ struct HomeScreen: View {
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreen()
+            .environmentObject(AppState(isFullScreen: false))
     }
 }

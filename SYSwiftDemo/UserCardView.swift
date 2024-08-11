@@ -12,6 +12,7 @@ struct UserCardView: View {
     var swipeAction: (() -> Void)?
     @State var imageIndex = 0
     @State var offset:CGSize = .zero
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         GeometryReader{ proxy in
@@ -140,7 +141,7 @@ struct UserCardView: View {
             }
             Spacer()
             Button{
-                
+                appState.isFullScreen = true;
             } label: {
                 Image(systemName: "info.circle.fill")
                     .font(.system(size: 30))
@@ -161,6 +162,7 @@ struct UserCardView: View {
 struct UserCardView_Previews: PreviewProvider {
     static var previews: some View {
         UserCardView(userCard: UserCard(name: "jame", age: 10, place: "London", zodiac: "Cancer", photos: ["image_0","image_1"]))
+            .environmentObject(AppState(isFullScreen: true))
     }
 }
 
