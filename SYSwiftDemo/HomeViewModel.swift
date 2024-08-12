@@ -10,6 +10,7 @@ import Foundation
 class HomeViewModel: ObservableObject {
     
     @Published var displayingCard: [UserCard]
+    @Published var selectedTitle: HomeScreen.HomeTitle = .TANTAN
     
     var hasMoreCard: Bool{
         return !displayingCard.isEmpty
