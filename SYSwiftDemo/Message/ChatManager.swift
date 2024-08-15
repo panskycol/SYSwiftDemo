@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+class ChatManager: ObservableObject {
+    
+    @Published var messages = []
+    var user: User
+    
+    init(user: User){
+        
+        self.user = user
+        loadMessage()
+    }
+    
+    func loadMessage() {
+        messages = [Message.messageSent, Message.messageReceived]
+    }
+}

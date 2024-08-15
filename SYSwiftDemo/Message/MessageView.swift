@@ -8,13 +8,38 @@
 import SwiftUI
 
 struct MessageView: View {
+    
+    var message: Message
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            
+            if message.isCurrentUser{
+                Spacer()
+            }
+            Text(message.content)
+                .padding(10)
+                .foregroundColor(.white)
+                .background(message.isCurrentUser ? Color.accentColor : .gray.opacity(0.7))
+                .cornerRadius(10)
+            if !message.isCurrentUser {
+                Spacer()
+            }
+        }
+        .padding()
     }
 }
 
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageView()
+        
+        //两条写死的假数据
+        let messageSent = Message.messageSent
+        let messageReceived = Message.messageReceived
+        
+        VStack{
+            MessageView(message: messageSent)
+            MessageView(message: messageReceived)
+        }
     }
 }

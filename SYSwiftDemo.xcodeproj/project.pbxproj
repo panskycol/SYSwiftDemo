@@ -32,8 +32,10 @@
 		59A3B05A2C5F6B8600CE253F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3B0592C5F6B8600CE253F /* View+Extension.swift */; };
 		59DB5D022C5E216700482FE6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB5D012C5E216700482FE6 /* AppState.swift */; };
 		59DB7B892C65CB0E001FD1A1 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB7B882C65CB0E001FD1A1 /* EmptyView.swift */; };
-		59DB7B8B2C6A1B86001FD1A1 /* PickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB7B8A2C6A1B86001FD1A1 /* PickView.swift */; };
-		59DB7B8D2C6AFFA4001FD1A1 /* PickListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB7B8C2C6AFFA4001FD1A1 /* PickListView.swift */; };
+		59F6FC1D2C6E525200E27F86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F6FC1C2C6E525200E27F86 /* User.swift */; };
+		59F6FC1F2C6E530800E27F86 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F6FC1E2C6E530800E27F86 /* Message.swift */; };
+		59F6FC222C6E53E100E27F86 /* PickListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F6FC202C6E53E100E27F86 /* PickListView.swift */; };
+		59F6FC232C6E53E100E27F86 /* PickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F6FC212C6E53E100E27F86 /* PickView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +84,10 @@
 		59A3B0592C5F6B8600CE253F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		59DB5D012C5E216700482FE6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		59DB7B882C65CB0E001FD1A1 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
-		59DB7B8A2C6A1B86001FD1A1 /* PickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickView.swift; sourceTree = "<group>"; };
-		59DB7B8C2C6AFFA4001FD1A1 /* PickListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickListView.swift; sourceTree = "<group>"; };
+		59F6FC1C2C6E525200E27F86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		59F6FC1E2C6E530800E27F86 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		59F6FC202C6E53E100E27F86 /* PickListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickListView.swift; sourceTree = "<group>"; };
+		59F6FC212C6E53E100E27F86 /* PickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 				59A3B0512C5F6A1900CE253F /* UserCard.swift */,
 				59A3B0532C5F6A4300CE253F /* HomeViewModel.swift */,
 				59A3B0572C5F6A9200CE253F /* RoundButton.swift */,
+				59F6FC202C6E53E100E27F86 /* PickListView.swift */,
+				59F6FC212C6E53E100E27F86 /* PickView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -130,6 +136,7 @@
 		590847302C6D051E004806B6 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				59F6FC1B2C6E524200E27F86 /* Model */,
 				590847312C6D0566004806B6 /* MessageView.swift */,
 				590847332C6D0571004806B6 /* ChatView.swift */,
 				590847352C6D0584004806B6 /* ChatViewHeader.swift */,
@@ -199,6 +206,15 @@
 				5917CD452C5C738900FBE60F /* SYSwiftDemoUITestsLaunchTests.swift */,
 			);
 			path = SYSwiftDemoUITests;
+			sourceTree = "<group>";
+		};
+		59F6FC1B2C6E524200E27F86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				59F6FC1C2C6E525200E27F86 /* User.swift */,
+				59F6FC1E2C6E530800E27F86 /* Message.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +350,7 @@
 				59A3B0582C5F6A9200CE253F /* RoundButton.swift in Sources */,
 				59DB5D022C5E216700482FE6 /* AppState.swift in Sources */,
 				590847402C6D061F004806B6 /* MessageListViewModel.swift in Sources */,
+				59F6FC232C6E53E100E27F86 /* PickView.swift in Sources */,
 				59DB7B892C65CB0E001FD1A1 /* EmptyView.swift in Sources */,
 				5908473C2C6D05DC004806B6 /* ChatManager.swift in Sources */,
 				59A3B05A2C5F6B8600CE253F /* View+Extension.swift in Sources */,
@@ -344,13 +361,16 @@
 				59A3B0502C5F6A0100CE253F /* HomeScreen.swift in Sources */,
 				5908473A2C6D05C0004806B6 /* MessageScreen.swift in Sources */,
 				59A3B0542C5F6A4300CE253F /* HomeViewModel.swift in Sources */,
+				59F6FC222C6E53E100E27F86 /* PickListView.swift in Sources */,
 				5917CD2B2C5C738700FBE60F /* ContentView.swift in Sources */,
 				5908473E2C6D05F9004806B6 /* MessageListScreen.swift in Sources */,
 				590847362C6D0584004806B6 /* ChatViewHeader.swift in Sources */,
 				598A5E492C68A50E00F834FF /* CardDetailView.swift in Sources */,
+				59F6FC1F2C6E530800E27F86 /* Message.swift in Sources */,
 				59A3B04E2C5F69DF00CE253F /* CardContainerView.swift in Sources */,
 				59A3B0522C5F6A1900CE253F /* UserCard.swift in Sources */,
 				5917CD292C5C738700FBE60F /* SYSwiftDemoApp.swift in Sources */,
+				59F6FC1D2C6E525200E27F86 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
