@@ -20,6 +20,7 @@ struct RoundButton: View {
     var type:ButtonType
     var buttnClick: ((_: ButtonType) -> Void)?
     
+    
     var body: some View {
         Button{
             buttnClick?(type)
@@ -45,24 +46,29 @@ struct PressScaleButton: ButtonStyle{
 
 struct ColorButton: ViewModifier{
     var type: ButtonType
+    @EnvironmentObject var appState: AppState
     
     //这个是ViewModifier协议里面的一个方法
     func body(content: Content) -> some View {
         switch type{
         case.back:
-            content.foregroundColor(.yellow)
+            content
+                .foregroundColor(.yellow)
+                .background(Color.black.opacity(0.4))
         case.no:
             content.foregroundColor(.white)
                 .padding(.horizontal, 30)
+                .background(appState.isFullScreen ? Color.yellow : Color.black.opacity(0.4))
         case.heart:
-            content.foregroundColor(.pink)
+            content.foregroundColor(appState.isFullScreen ? .white : .pink)
                 .padding(.horizontal, 30)
+                .background(appState.isFullScreen ? Color.pink : Color.black.opacity(0.4))
         case.star:
-            content.foregroundColor(.blue)
+            content.foregroundColor(appState.isFullScreen ? .white : .blue)
+                .background(appState.isFullScreen ? Color.blue : Color.black.opacity(0.4))
         }
     }
 }
-
 
 
 struct RoundButton_Previews: PreviewProvider {
@@ -71,9 +77,10 @@ struct RoundButton_Previews: PreviewProvider {
             ForEach(ButtonType.allCases){ type in
                 
                 RoundButton(type: type)
-                    .frame(height: 40)
+                    .frame(height: 45)
             }
-        }.background(Color.red)
+        }.background(Color.gray)
+            .environmentObject(AppState(isFullScreen: true))
         
     }
 }

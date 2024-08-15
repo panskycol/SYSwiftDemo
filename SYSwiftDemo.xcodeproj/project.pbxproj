@@ -32,6 +32,8 @@
 		59A3B05A2C5F6B8600CE253F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3B0592C5F6B8600CE253F /* View+Extension.swift */; };
 		59DB5D022C5E216700482FE6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB5D012C5E216700482FE6 /* AppState.swift */; };
 		59DB7B892C65CB0E001FD1A1 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB7B882C65CB0E001FD1A1 /* EmptyView.swift */; };
+		59DB7B8B2C6A1B86001FD1A1 /* PickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB7B8A2C6A1B86001FD1A1 /* PickView.swift */; };
+		59DB7B8D2C6AFFA4001FD1A1 /* PickListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DB7B8C2C6AFFA4001FD1A1 /* PickListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		59A3B0592C5F6B8600CE253F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		59DB5D012C5E216700482FE6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		59DB7B882C65CB0E001FD1A1 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		59DB7B8A2C6A1B86001FD1A1 /* PickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickView.swift; sourceTree = "<group>"; };
+		59DB7B8C2C6AFFA4001FD1A1 /* PickListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

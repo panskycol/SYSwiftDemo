@@ -11,22 +11,64 @@ struct HomeScreen: View {
     
     @StateObject var viewModel = HomeViewModel()
     @EnvironmentObject var appState: AppState
-    
+    @Namespace var namespace
     
     var body: some View {
         
-        if appState.isFullScreen {
-            CardDetailView(card:viewModel.displayingCard.first!)
-                .environmentObject(appState)
-        } else {
-            ZStack{
-                if viewModel.hasMoreCard {
-                    CardContainerView(viewModel: viewModel)
-                        .environmentObject(appState)
-                } else {
-                    EmptyView(viewModel: viewModel)
+        VStack{
+            if !appState.isFullScreen{
+                HStack{
+                    HomeTitleButton(selectedTitle: $viewModel.selectedTitle, title: .TANTAN)
+                    HomeTitleButton(selectedTitle: $viewModel.selectedTitle, title: .PICKS)
+                    Spacer()
+                }
+                .padding([.leading, .top], 15)
+            }
+            switchTab()
+        }
+    }
+    
+    @ViewBuilder
+    func switchTab() -> some View {
+        switch viewModel.selectedTitle {
+        case .TANTAN:
+            if appState.isFullScreen {
+                CardDetailView(card:viewModel.displayingCard.first!, namespace: namespace)
+                    .environmentObject(appState)
+            } else {
+                ZStack{
+                    if viewModel.hasMoreCard {
+                        CardContainerView(viewModel: viewModel, namespace: namespace)
+                            .environmentObject(appState)
+                    } else {
+                        EmptyView(viewModel: viewModel)
+                    }
                 }
             }
+        case .PICKS:
+            PickListView(cards: viewModel.displayingCard)
+        }
+    }
+    
+    enum HomeTitle: String {
+        case TANTAN
+        case PICKS
+    }
+}
+
+struct HomeTitleButton: View {
+    @Binding var selectedTitle: HomeScreen.HomeTitle
+    var title: HomeScreen.HomeTitle
+    var body: some View{
+        
+        Button {
+            selectedTitle = title
+            print("点击了！")
+        } label: {
+            Text(title.rawValue)
+                .font(.system(size: 25))
+                .fontWeight(.bold)
+                .foregroundColor(selectedTitle == title ? .yellow : .gray)
         }
     }
 }

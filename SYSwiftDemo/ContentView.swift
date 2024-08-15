@@ -13,26 +13,34 @@ struct ContentView: View {
     private let homeScreenView = HomeScreen()
     
     var body: some View {
-        VStack {
-            switch appState.selectedTab{
-            case .home:
-                HomeScreen()
-                    .environmentObject(appState)
-            case .live:
-                Text("Live")
-            case .message:
-                Text("Message")
-            case .profile:
-                Text("Profile")
-            }
-            
-            if !appState.isFullScreen{
-                Spacer()
-                HStack{
-                    createTabBarItem(tab: .home, title: "Home")
-                    createTabBarItem(tab: .live, title: "Live")
-                    createTabBarItem(tab: .message, title: "Message")
-                    createTabBarItem(tab: .profile, title: "Profile")
+        ZStack{
+            Color.gray.opacity(0.1)
+                        .ignoresSafeArea(edges: .bottom)
+            VStack {
+                switch appState.selectedTab{
+                case .home:
+                    HomeScreen()
+                        .environmentObject(appState)
+                        .background(Color.white)
+                case .live:
+                    Text("Live")
+                        .background(Color.white)
+                case .message:
+                    Text("Message")
+                        .background(Color.white)
+                case .profile:
+                    Text("Profile")
+                        .background(Color.white)
+                }
+                
+                if !appState.isFullScreen{
+                    Spacer()
+                    HStack{
+                        createTabBarItem(tab: .home, title: "Home")
+                        createTabBarItem(tab: .live, title: "Live")
+                        createTabBarItem(tab: .message, title: "Message")
+                        createTabBarItem(tab: .profile, title: "Profile")
+                    }
                 }
             }
         }

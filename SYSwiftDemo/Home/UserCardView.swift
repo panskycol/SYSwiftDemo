@@ -24,7 +24,8 @@ struct UserCardView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: frameWidth, height: frameHeight)
-                    .cornerRadius(20)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .contentShape(Rectangle())  //由于.fill会根据图片的大小会影响到图层，必须添加这个矩形解决超出范围导致底部控件无法点击
                 HStack{
                     Rectangle()
                         .onTapGesture {
@@ -148,7 +149,7 @@ struct UserCardView: View {
                     Text(userCard.zodiac)
                         .fontWeight(.bold)
                         .padding(5)
-                        .background(Color.white.opacity(0.3))
+//                        .background(Color.white.opacity(0.3))
                         .cornerRadius(5)
                     Text(userCard.place)
                 }
@@ -165,9 +166,9 @@ struct UserCardView: View {
         .foregroundColor(.white)
         .padding()
         .padding(.bottom, 60)
-        .background(
-            LinearGradient(colors: [.black.opacity(0.9), .clear], startPoint: .bottom, endPoint: .top)
-        )
+//        .background(
+//            LinearGradient(colors: [.black.opacity(0.9), .clear], startPoint: .bottom, endPoint: .top)
+//        )
         .cornerRadius(20)
         .clipped()
     }
