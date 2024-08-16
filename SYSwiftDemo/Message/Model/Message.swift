@@ -7,11 +7,18 @@
 
 import Foundation
 
-struct Message {
+struct Message: Identifiable {
+    var id = UUID()
     var content: String
     var user: User?
     var isCurrentUser: Bool {
         user == nil
+    }
+    
+    init(id: UUID = UUID(), content: String, user: User? = nil) {
+        self.id = id
+        self.content = content
+        self.user = user
     }
 }
 

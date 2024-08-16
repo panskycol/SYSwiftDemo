@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+
+class MessageListViewModel: ObservableObject{
+    
+    @Published var messagePreviews:[MessagePreview] = []
+    
+    init() {
+        loadPreviewMessages()
+    }
+    
+    func loadPreviewMessages() {
+        self.messagePreviews = MessagePreview.examples
+    }
+}

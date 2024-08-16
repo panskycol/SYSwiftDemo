@@ -7,12 +7,13 @@
 
 import Foundation
 
-struct User {
+struct User: Hashable {
     var name : String
     var photo : String
 }
 
 extension User{
-    static let me = User(name: "userSent", photo: "image_0")
-    static let others = User(name: "UserReceived", photo: "image_1")
+    static let me = User(name: "first", photo: "image_0")
+    static let others = User(name: "second", photo: "image_1")
+    static let others2 = User(name: "third", photo: "image_2")
 }

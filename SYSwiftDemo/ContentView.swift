@@ -14,8 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
-            Color.gray.opacity(0.1)
-                        .ignoresSafeArea(edges: .bottom)
+            Color.white.ignoresSafeArea(edges: .bottom)
             VStack {
                 switch appState.selectedTab{
                 case .home:
@@ -26,8 +25,8 @@ struct ContentView: View {
                     Text("Live")
                         .background(Color.white)
                 case .message:
-                    Text("Message")
-                        .background(Color.white)
+                    MessageListScreen()
+                        .environmentObject(appState)
                 case .profile:
                     Text("Profile")
                         .background(Color.white)
