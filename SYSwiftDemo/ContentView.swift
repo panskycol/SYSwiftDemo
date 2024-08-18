@@ -28,8 +28,7 @@ struct ContentView: View {
                     MessageListScreen()
                         .environmentObject(appState)
                 case .profile:
-                    Text("Profile")
-                        .background(Color.white)
+                    ProfileScreen(user: User.me)
                 }
                 
                 if !appState.isFullScreen{

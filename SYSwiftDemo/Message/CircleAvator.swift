@@ -25,6 +25,8 @@ struct CircleAvator: View {
     }
 }
 
-#Preview {
-    CircleAvator(photo: "image_0", size: 100)
+struct CircleAvator_Previews: PreviewProvider {
+    static var previews: some View {
+        CircleAvator(photo: "image_0", size: 100)
+    }
 }

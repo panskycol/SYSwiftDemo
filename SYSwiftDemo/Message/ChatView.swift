@@ -30,7 +30,7 @@ struct ChatView: View {
                         VStack{
                             ForEach(chatManager.messages, id: \.id){ message in
                                 MessageView(message: message)
-                                    .animation(.easeIn)
+                                    .animation(.easeIn, value: chatManager.messages.count)
                                     .transition(.move(edge: .trailing))
                                     .id(message.id)
                             }

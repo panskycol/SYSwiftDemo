@@ -66,7 +66,7 @@ struct MessageListScreen: View {
                             .padding(.vertical, 5)
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .animation(.easeInOut(duration: 0.25))
+                    .animation(.easeInOut(duration: 0.25), value: viewModel.messagePreviews.count)
                     .transition(.slide)
                 }
             }
