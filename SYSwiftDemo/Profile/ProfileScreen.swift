@@ -108,7 +108,7 @@ struct ProfileScreen: View {
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 10, height: 10)
+                .frame(width: 100, height: 100)
                 .cornerRadius(50)
                 .overlay {
                     Circle().stroke(.white, lineWidth: 5)
